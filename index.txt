@@ -1,0 +1,84 @@
+creating django project by using pipenv
+
+1.pip3 install --upgrade pipenv or if don't have any pipenv installed then install it by using pip3 install pipenv
+2.pipenv install django
+3.to activate working directory run commmand
+
+pipenv shell
+
+4.django-admin startproject myprojectresto . OR python3 manage.py startproject myprojectbook .
+5.django-admin manage.py startapp myappbook OR python3 manage.py startapp myappbook
+6.pipenv install djangorestframework
+
+setting.py
+'rest_framework'
+'myappBook'
+
+
+connect django to mysql
+
+Solution: Connect Django to MySQL
+Step 1:
+
+mysql -u root -p
+
+Note: Add the root password, if any, when password prompt appears.
+
+Step 2:
+
+CREATE DATABASE menu_db;
+
+Step 3:
+SHOW DATABASES;
+
+Step 4:
+mysql -u root -p
+
+Step 5:
+SHOW DATABASES;
+
+Step 6:
+CREATE DATABASE menu_items;
+
+Step 7:
+SHOW DATABASES;
+
+Step 8:
+CREATE USER 'admindjango'@'localhost' IDENTIFIED BY 'employee@123!' ;
+
+Step 9:
+GRANT ALL ON *.* TO 'admindjango'@'localhost';
+
+Step 10:
+FLUSH PRIVILEGES;
+
+Step 11:
+exit
+
+Step 12:
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'menu_db',
+        'HOST' : '127.0.0.1',
+        'PORT' : '3306',
+        'USER' : 'admindjango',
+        'PASSWORD' : 'employee@123!',
+    }
+}
+Step 13:
+   INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'myapp',
+]
+
+Step 14:
+python3 manage.py makemigrations
+
+python3 manage.py migrate
